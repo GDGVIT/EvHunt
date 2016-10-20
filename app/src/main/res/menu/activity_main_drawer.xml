@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_search"
+            android:icon="@drawable/ic_menu_search"
+            android:title="Search" />
+        <item
+            android:id="@+id/nav_today_event"
+            android:icon="@drawable/ic_menu_event"
+            android:title="Today's event " />
+        <item
+            android:id="@+id/nav_live_stats"
+            android:icon="@drawable/ic_menu_live_stats"
+            android:title="Live Stats" />
+        <item
+            android:id="@+id/nav_registration"
+            android:icon="@drawable/ic_menu_registration"
+            android:title="Tools" />
+
+        <item
+            android:id="@+id/nav_my_club"
+            android:icon="@drawable/ic_menu_my_club"
+            android:title="Gallery" />
+        <item
+            android:id="@+id/nav_clubs_chapters"
+            android:icon="@drawable/ic_menu_live_stats"
+            android:title="Slideshow" />
+        <item
+            android:id="@+id/_nav_feedback"
+            android:icon="@drawable/ic_menu_feedback"
+            android:title="Tools" />
+
+    </group>
+</menu>
