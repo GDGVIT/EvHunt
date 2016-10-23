@@ -20,7 +20,6 @@
         android:layout_gravity="start"
         android:background="@color/black"
         android:fitsSystemWindows="true"
-        android:fontFamily="sans-serif-thin"
         app:itemTextColor="@color/white"
         app:itemIconTint="@color/white"
         android:theme="@style/AppTheme.NavDrawer"
