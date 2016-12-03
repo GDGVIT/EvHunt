@@ -23,5 +23,7 @@
     <string name="make_a_new_event">Make a new Event</string>
     <string name="edit_details_of_club">Edit details of Club</string>
     <string name="see_event_approve_status">See Event Approve Status</string>
+    <string name="draft_events">Draft Events</string>
+    <string name="create_event">Create Event</string>
 
 </resources>

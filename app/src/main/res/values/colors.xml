@@ -10,5 +10,6 @@
     <color name="clubsChaptersPrimary">#009688</color>
     <color name="myclub_one">#c6394f</color>
     <color name="myclub_two">#a72f41</color>
+    <color name="grey">#d3d3d3</color>
 
 </resources>
