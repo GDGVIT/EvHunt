@@ -17,12 +17,15 @@ import android.view.MenuItem;
 
 import com.gdgvellore.evhunt.Entity.Actors.ClubsAndChapters;
 import com.gdgvellore.evhunt.Entity.ClubsChapters.Fragments.ClubsAndChaptersFragment;
+import com.gdgvellore.evhunt.Entity.Registration.Fragments.RegistrationFragment;
 import com.gdgvellore.evhunt.Entity.TodaysEvents.Fragments.TodaysEventsFragment;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
     private Toolbar toolbar;
+    private DrawerLayout drawer;
+    private int id;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,7 +35,8 @@ public class MainActivity extends AppCompatActivity
         setSupportActionBar(toolbar);
 
         ((AppCompatActivity) MainActivity.this).getSupportActionBar().setTitle("Home");
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+       // DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.setDrawerListener(toggle);
@@ -41,6 +45,7 @@ public class MainActivity extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
+        drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         TodaysEventsFragment fg = new TodaysEventsFragment();
         getSupportFragmentManager().beginTransaction().replace(R.id.content_main,fg).commit();
 
@@ -51,7 +56,7 @@ public class MainActivity extends AppCompatActivity
 
     @Override
     public void onBackPressed() {
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
         } else {
@@ -83,13 +88,25 @@ public class MainActivity extends AppCompatActivity
 
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
-    public boolean onNavigationItemSelected(MenuItem item) {
-        // Handle navigation view item clicks here.
-        int id = item.getItemId();
+    public boolean onNavigationItemSelected(final MenuItem item) {
+        drawer.closeDrawer(GravityCompat.START);
+        id = item.getItemId();
+        drawer.addDrawerListener(new DrawerLayout.DrawerListener() {
+            @Override
+            public void onDrawerSlide(View drawerView, float slideOffset) {
 
-      if (id == R.id.nav_search) {
+            }
+
+            @Override
+            public void onDrawerOpened(View drawerView) {
+
+            }
+
+            @Override
+            public void onDrawerClosed(View drawerView) {
+                if (item.getItemId() == R.id.nav_search) {
 //            // Handle the camera action
-       }
+                }
 //          else if (id == R.id.nav_gallery) {
 //
 //        } else if (id == R.id.nav_slideshow) {
@@ -101,20 +118,35 @@ public class MainActivity extends AppCompatActivity
 //        } else if (id == R.id.nav_send) {
 //
 //        }
-      else if(id==R.id.nav_today_event)
-      {
-          toolbar.setTitle("Today's Events");
-          TodaysEventsFragment fg = new TodaysEventsFragment();
-          getSupportFragmentManager().beginTransaction().replace(R.id.content_main,fg).commit();
-      }
-        else if(id==R.id.nav_clubs_chapters)
-        {
-            toolbar.setTitle("Clubs And Chapters");
-            ClubsAndChaptersFragment clubsAndChaptersFragment = new ClubsAndChaptersFragment();
-            getSupportFragmentManager().beginTransaction().replace(R.id.content_main,clubsAndChaptersFragment).commit();
-        }
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        drawer.closeDrawer(GravityCompat.START);
+
+                else if(id==R.id.nav_today_event)
+                {
+                    getSupportActionBar().show();
+                    toolbar.setTitle("Today's Events");
+                    TodaysEventsFragment fg = new TodaysEventsFragment();
+                   getSupportFragmentManager().beginTransaction().setCustomAnimations(R.anim.fade_in,R.anim.fade_out).replace(R.id.content_main,fg).commit();
+                }
+                else if(id==R.id.nav_clubs_chapters)
+                {
+                    toolbar.setTitle("Clubs And Chapters");
+                    toolbar.setBackgroundColor(getResources().getColor(R.color.clubsChaptersPrimary));
+                    ClubsAndChaptersFragment clubsAndChaptersFragment = new ClubsAndChaptersFragment();
+                    getSupportFragmentManager().beginTransaction().setCustomAnimations(R.anim.fade_in,R.anim.fade_out).replace(R.id.content_main,clubsAndChaptersFragment).commit();
+                }
+                else if(id==R.id.nav_registration)
+                {
+                    getSupportActionBar().hide();
+                   // toolbar.setTitle("Registration");
+                   // toolbar.setBackgroundColor(getResources().getColor(R.color.regPrimaryColor));
+                   // toolbar.setTitleTextColor(getResources().getColor(R.color.white));
+                    RegistrationFragment registrationFragment = new RegistrationFragment();
+                    getSupportFragmentManager().beginTransaction().setCustomAnimations(R.anim.fade_in,R.anim.fade_out).replace(R.id.content_main,registrationFragment).commit();
+                }
+            }
+            @Override
+            public void onDrawerStateChanged(int newState) {
+            }
+        });
         return true;
     }
 }

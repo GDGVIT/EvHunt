@@ -1,5 +1,6 @@
 package com.gdgvellore.evhunt.Entity.ClubsChapters.Fragments;
 
+import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -10,6 +11,8 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.TextView;
 
 import com.gdgvellore.evhunt.Entity.Actors.ClubsAndChapters;
@@ -39,6 +42,16 @@ public class ClubsAndChaptersFragment extends Fragment {
 
     private void init(View rootView) {
 
+
+
+
+        if (Build.VERSION.SDK_INT >= 21) {
+            Window window = getActivity().getWindow();
+            window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+            window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+            window.setStatusBarColor(getResources().getColor(R.color.clubsChaptersDark));
+
+        }
 
         clubsAndChaptersRecView = (RecyclerView)rootView.findViewById(R.id.clubsAndChaptersRecView);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(rootView.getContext());
