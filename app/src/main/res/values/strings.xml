@@ -17,5 +17,11 @@
     <string name="phoneHint">Phone Number</string>
     <string name="logIn">LogIn</string>
     <string name="seeChapters">See Events</string>
+    <string name="my_club">My Club</string>
+    <string name="welcome_admin">Welcome Admin</string>
+    <string name="now_you_have_successfully">Now you have successfully done your registration! Now access any one of the sections below</string>
+    <string name="make_a_new_event">Make a new Event</string>
+    <string name="edit_details_of_club">Edit details of Club</string>
+    <string name="see_event_approve_status">See Event Approve Status</string>
 
 </resources>

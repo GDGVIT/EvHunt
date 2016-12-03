@@ -8,5 +8,7 @@
     <color name="colorToolbarText">#000000</color>
     <color name="clubsChaptersDark">#008478</color>
     <color name="clubsChaptersPrimary">#009688</color>
+    <color name="myclub_one">#c6394f</color>
+    <color name="myclub_two">#a72f41</color>
 
 </resources>
