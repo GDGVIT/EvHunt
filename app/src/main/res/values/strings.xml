@@ -30,5 +30,8 @@
     <string name="date">Date</string>
     <string name="from">From</string>
     <string name="to">To</string>
+    <string name="event_registration">Event Registration</string>
+    <string name="description">Description</string>
+    <string name="update_pics">Update PIcs</string>
 
 </resources>
