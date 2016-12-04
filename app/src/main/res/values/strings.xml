@@ -33,5 +33,7 @@
     <string name="event_registration">Event Registration</string>
     <string name="description">Description</string>
     <string name="update_pics">Update PIcs</string>
+    <string name="activity_image_trans">image_transition</string>
+    <string name="club_description">The club helps develop life skills that helps foster growth and healthy competition needed for entrepreneurs</string>
 
 </resources>

@@ -1,9 +1,12 @@
 package com.gdgvellore.evhunt.Entity.ClubsChapters.Fragments;
 
+import android.app.Activity;
+import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.v4.app.ActivityOptionsCompat;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
@@ -13,9 +16,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.gdgvellore.evhunt.Entity.Actors.ClubsAndChapters;
+import com.gdgvellore.evhunt.Entity.ClubsChapters.Activities.ClubDetailsActivity;
 import com.gdgvellore.evhunt.MainActivity;
 import com.gdgvellore.evhunt.R;
 import com.simplecityapps.recyclerview_fastscroll.views.FastScrollRecyclerView;
@@ -114,11 +119,28 @@ public class ClubsAndChaptersFragment extends Fragment {
 
         private TextView clubName;
         private TextView clubOrChapter;
+        private ImageView iv;
 
-        public MyCustomView(View itemView) {
+        public MyCustomView(final View itemView) {
             super(itemView);
             clubName = (TextView)itemView.findViewById(R.id.clubName);
             clubOrChapter = (TextView)itemView.findViewById(R.id.chapterOrClub);
+            iv = (ImageView)itemView.findViewById(R.id.imageBday);
+
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent intent = new Intent(itemView.getContext(), ClubDetailsActivity.class);
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                        ActivityOptionsCompat options = ActivityOptionsCompat.
+                                makeSceneTransitionAnimation((Activity) itemView.getContext(), iv,getString(R.string.activity_image_trans));
+                        startActivity(intent, options.toBundle());
+                    }
+                    else {
+                        startActivity(intent);
+                    }
+                }
+            });
 
         }
     }

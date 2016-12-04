@@ -200,13 +200,7 @@
                         android:background="@drawable/black_rec"
                         />
                 </LinearLayout>
-
             </android.support.v7.widget.CardView>
-
-
-
-
         </LinearLayout>
-
     </android.support.v4.widget.NestedScrollView>
 </android.support.design.widget.CoordinatorLayout>

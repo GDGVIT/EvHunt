@@ -128,6 +128,7 @@ public class MainActivity extends AppCompatActivity
                 }
                 else if(id==R.id.nav_clubs_chapters)
                 {
+                    getSupportActionBar().show();
                     toolbar.setTitle("Clubs And Chapters");
                     toolbar.setBackgroundColor(getResources().getColor(R.color.clubsChaptersPrimary));
                     ClubsAndChaptersFragment clubsAndChaptersFragment = new ClubsAndChaptersFragment();

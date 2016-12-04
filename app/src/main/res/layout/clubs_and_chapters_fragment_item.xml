@@ -16,13 +16,13 @@
         android:orientation="vertical"
         >
 
-<!--
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
             android:id="@+id/imageBday"
-            android:src="@drawable/ic_expand_more_black_24dp"
-            />-->
+            android:src="@drawable/scenary"
+            android:transitionName="@string/activity_image_trans"
+            />
     </LinearLayout>
 
 
